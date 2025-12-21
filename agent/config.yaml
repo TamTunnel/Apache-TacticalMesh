@@ -1,0 +1,40 @@
+# Apache TacticalMesh Node Agent Configuration
+# SPDX-License-Identifier: Apache-2.0
+#
+# This is a sample configuration file for the Node Agent.
+# Copy this file and modify for your specific deployment.
+
+# Node identification
+node_id: "node-001"
+name: "Sample Edge Node"
+node_type: "sensor"  # Options: vehicle, dismounted, sensor, uas, relay
+
+# Controller connection
+controller:
+  primary_url: "http://localhost:8000"
+  backup_urls: []
+  timeout_seconds: 30
+  verify_ssl: true
+
+# Authentication
+# Leave null for auto-registration, or specify a pre-configured token
+auth_token: null
+
+# Heartbeat settings
+heartbeat_interval_seconds: 30
+
+# Command polling (within heartbeat response)
+command_poll_interval_seconds: 10
+
+# Retry settings for controller communication
+max_retries: 5
+retry_backoff_base: 2.0
+retry_backoff_max: 300
+
+# Logging configuration
+log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+log_file: null  # Set to path for file logging, e.g., "./logs/agent.log"
+
+# Local storage
+data_dir: "./data"
+buffer_commands: true  # Buffer unexecuted commands when offline

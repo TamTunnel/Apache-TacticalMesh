@@ -1,0 +1,801 @@
+# Apache TacticalMesh OpenAPI Specification
+# Copyright 2024 Apache TacticalMesh Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+openapi: 3.0.3
+info:
+  title: Apache TacticalMesh Controller API
+  description: |
+    REST API for the Apache TacticalMesh Mesh Controller.
+    
+    This API enables management of mesh nodes, command dispatch, configuration,
+    and user authentication for tactical edge networking deployments.
+    
+    ## Authentication
+    
+    Most endpoints require JWT Bearer token authentication. Obtain a token via
+    the `/api/v1/auth/login` endpoint.
+    
+    ## Roles
+    
+    - **admin**: Full access to all operations
+    - **operator**: Can manage nodes and send commands
+    - **observer**: Read-only access to node status
+    
+    ## License
+    
+    Apache License 2.0 - https://www.apache.org/licenses/LICENSE-2.0
+  version: 0.1.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  contact:
+    name: Apache TacticalMesh
+    url: https://github.com/TamTunnel/Apache-TacticalMesh
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+  - url: https://api.tacticalmesh.example.com
+    description: Production server
+
+tags:
+  - name: Authentication
+    description: User authentication and management
+  - name: Nodes
+    description: Mesh node registration and monitoring
+  - name: Commands
+    description: Command dispatch and tracking
+  - name: Configuration
+    description: Global and node-specific configuration
+  - name: Health
+    description: Service health checks
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Health check
+      description: Returns the current health status of the controller
+      operationId: healthCheck
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+  /api/v1/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: User login
+      description: Authenticate user and obtain JWT access token
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v1/auth/register:
+    post:
+      tags:
+        - Authentication
+      summary: Register new user
+      description: Create a new user account (admin only)
+      operationId: registerUser
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Username or email already exists
+        '403':
+          description: Admin role required
+
+  /api/v1/nodes/register:
+    post:
+      tags:
+        - Nodes
+      summary: Register a node
+      description: Register a new mesh node or re-register an existing one
+      operationId: registerNode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NodeRegisterRequest'
+      responses:
+        '201':
+          description: Node registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodeRegisterResponse'
+
+  /api/v1/nodes/heartbeat:
+    post:
+      tags:
+        - Nodes
+      summary: Node heartbeat
+      description: Send heartbeat with telemetry data and receive pending commands
+      operationId: nodeHeartbeat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HeartbeatRequest'
+      responses:
+        '200':
+          description: Heartbeat acknowledged
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HeartbeatResponse'
+        '404':
+          description: Node not found
+
+  /api/v1/nodes:
+    get:
+      tags:
+        - Nodes
+      summary: List nodes
+      description: List all registered nodes with pagination and filtering
+      operationId: listNodes
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 50
+            maximum: 100
+        - name: status_filter
+          in: query
+          schema:
+            $ref: '#/components/schemas/NodeStatus'
+        - name: node_type
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of nodes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodeListResponse'
+
+  /api/v1/nodes/{node_id}:
+    get:
+      tags:
+        - Nodes
+      summary: Get node details
+      description: Get details of a specific node
+      operationId: getNode
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: node_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Node details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Node'
+        '404':
+          description: Node not found
+    delete:
+      tags:
+        - Nodes
+      summary: Delete node
+      description: Delete a node (operator or admin only)
+      operationId: deleteNode
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: node_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Node deleted
+        '404':
+          description: Node not found
+
+  /api/v1/commands:
+    get:
+      tags:
+        - Commands
+      summary: List commands
+      description: List commands with pagination and filtering
+      operationId: listCommands
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 50
+        - name: status_filter
+          in: query
+          schema:
+            $ref: '#/components/schemas/CommandStatus'
+        - name: command_type
+          in: query
+          schema:
+            $ref: '#/components/schemas/CommandType'
+        - name: target_node_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of commands
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommandListResponse'
+    post:
+      tags:
+        - Commands
+      summary: Create command
+      description: Create a new command for a target node
+      operationId: createCommand
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommandCreate'
+      responses:
+        '201':
+          description: Command created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+        '404':
+          description: Target node not found
+
+  /api/v1/commands/{command_id}:
+    get:
+      tags:
+        - Commands
+      summary: Get command details
+      description: Get details and status of a specific command
+      operationId: getCommand
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: command_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Command details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Command'
+        '404':
+          description: Command not found
+    delete:
+      tags:
+        - Commands
+      summary: Cancel command
+      description: Cancel a pending command
+      operationId: cancelCommand
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: command_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Command cancelled
+        '400':
+          description: Command cannot be cancelled
+        '404':
+          description: Command not found
+
+  /api/v1/config:
+    get:
+      tags:
+        - Configuration
+      summary: List configurations
+      description: List configuration items
+      operationId: listConfigs
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: scope
+          in: query
+          schema:
+            type: string
+            enum: [global, node]
+        - name: node_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of configurations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigListResponse'
+
+  /api/v1/config/{key}:
+    get:
+      tags:
+        - Configuration
+      summary: Get configuration
+      description: Get a specific configuration value
+      operationId: getConfig
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: node_id
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Configuration value
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config'
+        '404':
+          description: Configuration not found
+    put:
+      tags:
+        - Configuration
+      summary: Set configuration
+      description: Create or update a configuration value
+      operationId: setConfig
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfigItem'
+      responses:
+        '200':
+          description: Configuration updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Config'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+
+    HealthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: healthy
+        version:
+          type: string
+          example: 0.1.0
+        timestamp:
+          type: string
+          format: date-time
+
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          minLength: 3
+        password:
+          type: string
+          minLength: 8
+
+    Token:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          example: bearer
+        expires_in:
+          type: integer
+        role:
+          $ref: '#/components/schemas/UserRole'
+
+    UserRole:
+      type: string
+      enum: [admin, operator, observer]
+
+    UserCreate:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+        role:
+          $ref: '#/components/schemas/UserRole'
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+        email:
+          type: string
+        role:
+          $ref: '#/components/schemas/UserRole'
+        is_active:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        last_login:
+          type: string
+          format: date-time
+
+    NodeStatus:
+      type: string
+      enum: [online, offline, degraded, unknown]
+
+    NodeRegisterRequest:
+      type: object
+      required:
+        - node_id
+      properties:
+        node_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        node_type:
+          type: string
+        ip_address:
+          type: string
+        mac_address:
+          type: string
+        metadata:
+          type: object
+
+    NodeRegisterResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        node_id:
+          type: string
+        auth_token:
+          type: string
+        message:
+          type: string
+
+    HeartbeatRequest:
+      type: object
+      required:
+        - node_id
+      properties:
+        node_id:
+          type: string
+        cpu_usage:
+          type: number
+          minimum: 0
+          maximum: 100
+        memory_usage:
+          type: number
+          minimum: 0
+          maximum: 100
+        disk_usage:
+          type: number
+          minimum: 0
+          maximum: 100
+        latitude:
+          type: number
+        longitude:
+          type: number
+        altitude:
+          type: number
+        custom_metrics:
+          type: object
+
+    HeartbeatResponse:
+      type: object
+      properties:
+        acknowledged:
+          type: boolean
+        server_time:
+          type: string
+          format: date-time
+        pending_commands:
+          type: array
+          items:
+            $ref: '#/components/schemas/CommandBrief'
+
+    Node:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        node_id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        node_type:
+          type: string
+        status:
+          $ref: '#/components/schemas/NodeStatus'
+        last_heartbeat:
+          type: string
+          format: date-time
+        cpu_usage:
+          type: number
+        memory_usage:
+          type: number
+        disk_usage:
+          type: number
+        latitude:
+          type: number
+        longitude:
+          type: number
+        altitude:
+          type: number
+        ip_address:
+          type: string
+        metadata:
+          type: object
+        registered_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    NodeListResponse:
+      type: object
+      properties:
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+
+    CommandType:
+      type: string
+      enum: [ping, reload_config, update_config, change_role, custom]
+
+    CommandStatus:
+      type: string
+      enum: [pending, sent, acknowledged, executing, completed, failed, timeout]
+
+    CommandCreate:
+      type: object
+      required:
+        - target_node_id
+        - command_type
+      properties:
+        target_node_id:
+          type: string
+        command_type:
+          $ref: '#/components/schemas/CommandType'
+        payload:
+          type: object
+
+    CommandBrief:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        command_type:
+          $ref: '#/components/schemas/CommandType'
+        payload:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+
+    Command:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        command_type:
+          $ref: '#/components/schemas/CommandType'
+        status:
+          $ref: '#/components/schemas/CommandStatus'
+        target_node_id:
+          type: string
+          format: uuid
+        payload:
+          type: object
+        result:
+          type: object
+        error_message:
+          type: string
+        created_by:
+          type: string
+          format: uuid
+        created_at:
+          type: string
+          format: date-time
+        sent_at:
+          type: string
+          format: date-time
+        acknowledged_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+
+    CommandListResponse:
+      type: object
+      properties:
+        commands:
+          type: array
+          items:
+            $ref: '#/components/schemas/Command'
+        total:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+
+    ConfigItem:
+      type: object
+      required:
+        - key
+        - value
+      properties:
+        key:
+          type: string
+        value: {}
+        scope:
+          type: string
+          default: global
+        node_id:
+          type: string
+        description:
+          type: string
+
+    Config:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        key:
+          type: string
+        value: {}
+        scope:
+          type: string
+        node_id:
+          type: string
+          format: uuid
+        description:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+
+    ConfigListResponse:
+      type: object
+      properties:
+        configs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Config'
+        total:
+          type: integer

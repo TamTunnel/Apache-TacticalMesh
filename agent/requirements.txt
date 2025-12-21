@@ -1,0 +1,17 @@
+# Apache TacticalMesh Node Agent Dependencies
+# SPDX-License-Identifier: Apache-2.0
+
+# HTTP Client
+requests>=2.31.0,<3.0.0
+urllib3>=2.1.0,<3.0.0
+
+# Configuration
+pyyaml>=6.0.1,<7.0.0
+pydantic>=2.5.0,<2.6.0
+
+# System metrics
+psutil>=5.9.0,<6.0.0
+
+# Development/Testing
+pytest>=7.4.0,<8.0.0
+responses>=0.24.0,<0.25.0
