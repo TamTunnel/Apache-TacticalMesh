@@ -3,7 +3,7 @@
 #
 # Lightweight container for running the Node Agent on edge devices.
 
-FROM python:3.11-slim
+FROM python:3.14-slim
 
 # Set working directory
 WORKDIR /app
