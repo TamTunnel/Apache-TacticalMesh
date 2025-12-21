@@ -110,7 +110,7 @@ class Node(Base):
     auth_token = Column(String(255), nullable=True)
     
     # Metadata
-    metadata = Column(JSON, nullable=True)
+    node_metadata = Column(JSON, nullable=True)
     
     # Timestamps
     registered_at = Column(DateTime, default=datetime.utcnow)

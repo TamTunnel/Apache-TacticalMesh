@@ -19,6 +19,7 @@ from ..auth import (
     create_audit_log,
     get_password_hash,
     require_admin,
+    require_any_role,
 )
 from ..config import get_settings
 from ..database import get_db
@@ -179,7 +180,7 @@ async def list_users(
 
 @router.get("/me", response_model=UserResponse)
 async def get_current_user_info(
-    current_user: User = Depends(require_admin.__wrapped__(UserRole.ADMIN, UserRole.OPERATOR, UserRole.OBSERVER))
+    current_user: User = Depends(require_any_role)
 ) -> UserResponse:
     """
     Get current user information.

@@ -55,7 +55,7 @@ async def register_node(
     - **node_type**: Type of node (vehicle, dismounted, sensor, uas, etc.)
     - **ip_address**: Node's IP address
     - **mac_address**: Node's MAC address
-    - **metadata**: Additional metadata as JSON
+    - **node_metadata**: Additional metadata as JSON
     
     Returns an authentication token for the node to use in subsequent requests.
     """
@@ -72,7 +72,7 @@ async def register_node(
         existing_node.node_type = node_data.node_type or existing_node.node_type
         existing_node.ip_address = node_data.ip_address or existing_node.ip_address
         existing_node.mac_address = node_data.mac_address or existing_node.mac_address
-        existing_node.metadata = node_data.metadata or existing_node.metadata
+        existing_node.node_metadata = node_data.node_metadata or existing_node.node_metadata
         existing_node.auth_token = generate_auth_token()
         existing_node.status = NodeStatus.ONLINE
         existing_node.last_heartbeat = datetime.utcnow()
@@ -98,7 +98,7 @@ async def register_node(
         node_type=node_data.node_type,
         ip_address=node_data.ip_address,
         mac_address=node_data.mac_address,
-        metadata=node_data.metadata,
+        node_metadata=node_data.node_metadata,
         auth_token=auth_token,
         status=NodeStatus.ONLINE,
         last_heartbeat=datetime.utcnow()

@@ -84,7 +84,7 @@ class NodeRegisterRequest(BaseModel):
     node_type: Optional[str] = Field(None, max_length=50)
     ip_address: Optional[str] = None
     mac_address: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
+    node_metadata: Optional[Dict[str, Any]] = None
 
 
 class NodeRegisterResponse(BaseModel):
@@ -130,7 +130,7 @@ class NodeResponse(BaseModel):
     longitude: Optional[float]
     altitude: Optional[float]
     ip_address: Optional[str]
-    metadata: Optional[Dict[str, Any]]
+    node_metadata: Optional[Dict[str, Any]]
     registered_at: datetime
     updated_at: datetime
 
