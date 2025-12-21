@@ -102,6 +102,19 @@ Telecom-focused efforts to open radio access network interfaces:
 - **Remote Operations:** Industrial sites, research stations, and maritime vessels with intermittent connectivity
 - **Coalition Operations:** Interoperable command and control for allied forces with different native systems
 
+### Representative Use Cases
+**1. Platoon‑Level Edge Network in Contested Spectrum**
+In a high‑threat environment, a platoon operating beyond the range of fixed infrastructure needs resilient local communications between vehicles, dismounted soldiers, and unattended sensors. Apache TacticalMesh is deployed on small edge computers (e.g., ruggedized Raspberry Pi‑class devices) mounted in vehicles and carried in rucksacks. Each node runs the agent, registering with a nearby controller when available and continuing to exchange health and status information when disconnected. Operators use the web console to see which squads and sensors are online, issue simple commands (e.g., reconfigure reporting intervals, enable/disable a sensor), and review audit logs showing who changed what and when. This enables commanders to maintain situational awareness even when satellite and cellular links are degraded or denied.
+
+**2. Coalition / Joint Exercise Lab Environment**
+During a joint or coalition training exercise, multiple nations want to experiment with different radio stacks, edge devices, and command‑and‑control systems without locking into a single vendor. Apache TacticalMesh is deployed in a lab environment as the common “control‑plane” fabric: each participating nation connects its own radios and edge nodes via the TacticalMesh agent and integrates its national C2 prototypes via the OpenAPI interface. The open, Apache‑licensed controller provides shared visibility of node status and command delivery while allowing each partner to keep its own radio hardware and national applications. This supports experimentation with coalition interoperability while maintaining clean separation of sensitive national capabilities.
+
+**3. Rapid Response / Disaster Relief Network (Dual‑Use)**
+After a major natural disaster, civil authorities and military support units need to stand up a local communications fabric quickly in an area with damaged infrastructure. Apache TacticalMesh is deployed on commercial off‑the‑shelf edge devices placed at command posts, field hospitals, and logistics hubs. The agent software forms a local control‑plane mesh, reporting basic health and location information back to a central controller when power and connectivity are available. The operations console gives incident commanders a single view of which sites are reachable, which edge nodes are overloaded, and where to direct scarce resources. This dual‑use scenario allows organizations to evaluate the platform in peacetime humanitarian missions while using the same codebase that can later be hardened for military operations.
+
+**4. Vendor‑Neutral Integration Testbed**
+A defense program office or integrator wants to test multiple radios, routers, and edge compute platforms from different vendors without relying on any one vendor’s proprietary management stack. Apache TacticalMesh is used as a neutral integration layer: each device hosts a small agent that normalizes status and telemetry into a common schema. The program office connects their existing monitoring tools and prototypes to the controller’s OpenAPI endpoints to evaluate performance, resilience, and behavior under fault conditions. Because TacticalMesh is Apache‑licensed and open, the testbed can be shared with contractors, FFRDCs, and allied labs without complex licensing agreements, while still leaving final export‑control decisions to each organization.
+
 ---
 
 ## Key Features (v0.1)
