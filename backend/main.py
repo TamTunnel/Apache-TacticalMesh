@@ -14,6 +14,8 @@ from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 from .config import get_settings
 from .database import init_db, close_db, async_session_maker
@@ -21,6 +23,7 @@ from .models import User, UserRole
 from .auth import get_password_hash
 from .schemas import HealthResponse
 from .routers import auth, nodes, commands, config
+from .security import limiter
 
 # Configure logging
 settings = get_settings()
@@ -29,6 +32,7 @@ logging.basicConfig(
     format=settings.log_format
 )
 logger = logging.getLogger(__name__)
+
 
 
 @asynccontextmanager
@@ -50,11 +54,12 @@ async def lifespan(app: FastAPI):
                 email="admin@tacticalmesh.local",
                 hashed_password=get_password_hash("admin123"),  # Change in production!
                 role=UserRole.ADMIN,
-                is_active=True
+                is_active=True,
+                force_password_change=True  # Security: Force password change on first login
             )
             session.add(admin_user)
             await session.commit()
-            logger.info("Created default admin user (username: admin, password: admin123)")
+            logger.warning("Created default admin user - PASSWORD CHANGE REQUIRED ON FIRST LOGIN")
     
     logger.info("Apache TacticalMesh Controller started successfully")
     
@@ -101,6 +106,10 @@ Apache License 2.0 - https://www.apache.org/licenses/LICENSE-2.0
     },
     lifespan=lifespan
 )
+
+# Configure rate limiting
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Configure CORS
 app.add_middleware(

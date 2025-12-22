@@ -68,6 +68,12 @@ class User(Base):
     hashed_password = Column(String(255), nullable=False)
     role = Column(Enum(UserRole), nullable=False, default=UserRole.OBSERVER)
     is_active = Column(Boolean, default=True)
+    
+    # Security fields
+    force_password_change = Column(Boolean, default=False)
+    failed_login_attempts = Column(Integer, default=0)
+    locked_until = Column(DateTime, nullable=True)
+    
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     last_login = Column(DateTime, nullable=True)
@@ -75,6 +81,7 @@ class User(Base):
     # Relationships
     audit_logs = relationship("AuditLog", back_populates="user")
     commands = relationship("Command", back_populates="created_by_user")
+
 
 
 class Node(Base):

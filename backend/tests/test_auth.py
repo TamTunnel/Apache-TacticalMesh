@@ -58,12 +58,13 @@ async def test_register_user_requires_admin(client: AsyncClient, operator_token:
         "/api/v1/auth/register",
         json={
             "username": "newuser",
-            "password": "newpassword123",
+            "password": "NewPassword123!",  # Complex password
             "role": "observer"
         },
         headers={"Authorization": f"Bearer {operator_token}"}
     )
     assert response.status_code == 403
+
 
 
 @pytest.mark.asyncio
@@ -74,7 +75,7 @@ async def test_register_user_as_admin(client: AsyncClient, admin_token: str):
         json={
             "username": "newoperator",
             "email": "newoperator@test.com",
-            "password": "newpassword123",
+            "password": "NewPassword123!",  # Complex password meeting requirements
             "role": "operator"
         },
         headers={"Authorization": f"Bearer {admin_token}"}
@@ -83,3 +84,4 @@ async def test_register_user_as_admin(client: AsyncClient, admin_token: str):
     data = response.json()
     assert data["username"] == "newoperator"
     assert data["role"] == "operator"
+

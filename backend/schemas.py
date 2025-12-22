@@ -35,6 +35,7 @@ class Token(BaseModel):
     token_type: str = "bearer"
     expires_in: int
     role: UserRole
+    requires_password_change: bool = False
 
 
 class TokenData(BaseModel):
