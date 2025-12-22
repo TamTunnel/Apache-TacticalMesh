@@ -36,13 +36,9 @@ test_async_session = async_sessionmaker(
     expire_on_commit=False,
 )
 
-
-@pytest.fixture(scope="session")
-def event_loop() -> Generator:
-    """Create an event loop for the test session."""
-    loop = asyncio.get_event_loop_policy().new_event_loop()
-    yield loop
-    loop.close()
+# Configure pytest-asyncio mode
+# Note: pytest-asyncio will handle event loop creation automatically
+pytest_plugins = ['pytest_asyncio']
 
 
 @pytest_asyncio.fixture
