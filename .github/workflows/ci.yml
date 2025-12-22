@@ -18,24 +18,10 @@ env:
 
 jobs:
   # Backend Tests
+  # Note: Tests use in-memory SQLite, PostgreSQL not required for CI
   backend-test:
     name: Backend Tests
     runs-on: ubuntu-latest
-    
-    services:
-      postgres:
-        image: postgres:15-alpine
-        env:
-          POSTGRES_USER: test
-          POSTGRES_PASSWORD: test
-          POSTGRES_DB: test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - name: Checkout code
@@ -59,7 +45,6 @@ jobs:
           cd backend
           python -m pytest tests/ -v --tb=short
         env:
-          TM_DATABASE_URL: postgresql+asyncpg://test:test@localhost:5432/test
           TM_JWT_SECRET_KEY: test-secret-key-for-ci
           TM_DEBUG: "true"
 
