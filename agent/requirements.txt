@@ -14,4 +14,4 @@ psutil>=5.9.0,<6.0.0
 
 # Development/Testing
 pytest>=7.4.0,<8.0.0
-responses>=0.24.0,<0.25.0
+responses>=0.24.0,<0.26.0
