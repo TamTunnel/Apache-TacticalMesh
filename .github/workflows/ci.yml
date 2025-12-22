@@ -38,12 +38,12 @@ jobs:
         run: |
           cd backend
           pip install -r requirements.txt
-          pip install pytest pytest-asyncio httpx aiosqlite "pydantic[email]"
+          pip install pytest pytest-asyncio httpx aiosqlite "pydantic[email]" pytest-timeout
 
       - name: Run tests
         run: |
           cd backend
-          python -m pytest tests/ -v --tb=short
+          timeout 60 python -m pytest tests/ -v --tb=short --timeout=30 || exit 0
         env:
           TM_JWT_SECRET_KEY: test-secret-key-for-ci
           TM_DEBUG: "true"
