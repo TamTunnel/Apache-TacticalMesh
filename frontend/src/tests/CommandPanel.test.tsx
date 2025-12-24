@@ -1,11 +1,11 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
 import CommandPanel from '../components/CommandsPanel';
 import { AuthProvider } from '../context/AuthContext';
 
-// vi.mock must use inline factory - no external references
+// Mock API client
 vi.mock('../api/client', () => ({
     apiClient: {
         isAuthenticated: vi.fn(() => false),
@@ -14,7 +14,7 @@ vi.mock('../api/client', () => ({
         login: vi.fn(),
         logout: vi.fn(),
         clearToken: vi.fn(),
-        getCommands: vi.fn(() => Promise.resolve({ commands: [], total: 0 })),
+        getCommands: vi.fn(() => Promise.resolve({ commands: [], total: 0, page: 1, page_size: 10 })),
     },
     default: {
         isAuthenticated: vi.fn(() => false),
@@ -23,7 +23,7 @@ vi.mock('../api/client', () => ({
         login: vi.fn(),
         logout: vi.fn(),
         clearToken: vi.fn(),
-        getCommands: vi.fn(() => Promise.resolve({ commands: [], total: 0 })),
+        getCommands: vi.fn(() => Promise.resolve({ commands: [], total: 0, page: 1, page_size: 10 })),
     }
 }));
 
@@ -38,13 +38,15 @@ const renderWithProviders = (component: React.ReactNode) => {
 };
 
 describe('CommandPanel', () => {
-    it('renders command panel header', async () => {
-        renderWithProviders(<CommandPanel nodeId="test-node-001" />);
+    it('renders without crashing', async () => {
+        const { container } = renderWithProviders(<CommandPanel />);
+        await waitFor(() => expect(container).toBeTruthy());
+    });
 
+    it('renders header text', async () => {
+        const { container } = renderWithProviders(<CommandPanel />);
         await waitFor(() => {
-            // Look for text that should be in CommandsPanel
-            const header = screen.queryByText(/command/i);
-            expect(header).toBeTruthy();
-        }, { timeout: 2000 });
+            expect(container.textContent).toContain('Commands');
+        });
     });
 });
