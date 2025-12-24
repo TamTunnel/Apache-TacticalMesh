@@ -39,7 +39,12 @@ Initial public release of Apache TacticalMesh — an open-source tactical edge n
 - Local buffering of telemetry during disconnection
 - Graceful shutdown handling
 - State machine: DISCONNECTED → REGISTERED → DEGRADED
-- **[Experimental]** Mesh peering with UDP-based peer discovery
+- **Multi-hop mesh routing** with automatic failover:
+  - Route discovery via peer broadcast
+  - Smart path selection (hop count, RTT, reliability)
+  - TTL-based loop prevention (configurable max_hops)
+  - Full relay path tracing for debugging/audit
+- Mesh peering with UDP-based peer discovery
 
 #### Web Console (Frontend)
 - React + TypeScript single-page application
@@ -75,7 +80,6 @@ Initial public release of Apache TacticalMesh — an open-source tactical edge n
 
 ### Known Limitations
 
-- Mesh routing between agents is experimental (v0.2+ roadmap)
 - WebSocket real-time updates not yet implemented
 - No FIPS-validated cryptography (standard TLS only)
 - No HSM integration
@@ -91,10 +95,10 @@ Apache License 2.0 — See [LICENSE](LICENSE) for details.
 
 ### Planned for v0.2
 
-- Multi-hop mesh routing between agents
 - Offline command buffering with sync-on-reconnect
 - WebSocket real-time updates in console
 - Prometheus metrics export
+- Geographic visualization (map-based node display)
 
 [0.1.0]: https://github.com/TamTunnel/Apache-TacticalMesh/releases/tag/v0.1.0
 [Unreleased]: https://github.com/TamTunnel/Apache-TacticalMesh/compare/v0.1.0...HEAD
