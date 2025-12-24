@@ -236,12 +236,12 @@ nohup python3 -m agent.main --config config.yaml > agent.log 2>&1 &
 
 ---
 
-### Phase 4: Mesh Peering Demo (Optional, 15 minutes)
+### Phase 4: Mesh Multi-Hop Routing Demo (20 minutes)
 
 > [!NOTE]
-> Mesh peering is experimental in v0.1.0. This demonstrates peer discovery only.
+> Level 2 Multi-Hop Routing enables nodes to relay heartbeats through peers when the controller is unreachable.
 
-#### 4.1 Configure Peer Discovery
+#### 4.1 Configure Mesh Networking
 
 Edit agent config on each node to include mesh settings:
 
@@ -249,6 +249,10 @@ Edit agent config on each node to include mesh settings:
 mesh:
   enabled: true
   listen_port: 7777
+  heartbeat_interval_seconds: 10
+  peer_timeout_seconds: 30
+  route_cache_ttl_seconds: 60
+  max_hops: 5
   peers:
     - node_id: edge-node-002
       address: 192.168.1.102
@@ -256,7 +260,6 @@ mesh:
     - node_id: edge-node-003
       address: 192.168.1.103
       port: 7777
-  heartbeat_interval_seconds: 10
 ```
 
 #### 4.2 Restart Agents
@@ -273,7 +276,22 @@ Check agent logs for:
 ```
 INFO: MeshPeering: Added static peer edge-node-002
 INFO: MeshPeering: Peer edge-node-002 status: REACHABLE
+INFO: MeshRouter initialized: node_id=edge-node-001, max_hops=5
 ```
+
+#### 4.4 Test Multi-Hop Relay
+
+1. Block direct controller access on Node 1: `iptables -A OUTPUT -d <controller-ip> -j DROP`
+2. Observe agent logs: 
+   ```
+   WARNING: Direct heartbeat failed - controller unreachable
+   INFO: Discovering mesh routes to controller...
+   INFO: Route discovered: controller via edge-node-002 (1 hops, 25.0ms)
+   INFO: Heartbeat relayed via edge-node-002 (1 hops, 25ms RTT)
+   ```
+3. Node 2 forwards heartbeat to controller via HTTP
+4. Restore access: `iptables -D OUTPUT -d <controller-ip> -j DROP`
+
 
 ---
 

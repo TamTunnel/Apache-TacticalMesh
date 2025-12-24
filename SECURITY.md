@@ -54,6 +54,8 @@ Apache TacticalMesh is **open-source, unclassified software** designed as genera
 | Account Lockout | ✅ 15-minute lockout after 5 failed attempts |
 | Password Complexity | ✅ Requires uppercase, lowercase, digit, special char |
 | Forced Password Change | ✅ Default admin must change password on first login |
+| Mesh Routing TTL | ✅ Hop limits prevent routing loops (default 5 hops) |
+| Mesh Path Tracing | ✅ Full relay path logged for audit |
 
 
 ### What This Project Does NOT Provide

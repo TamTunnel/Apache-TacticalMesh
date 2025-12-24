@@ -232,7 +232,11 @@ Apache-TacticalMesh/
 │   ├── main.py             # Agent entry point
 │   ├── config.py           # YAML configuration
 │   ├── client.py           # HTTP client
-│   └── actions.py          # Command handlers
+│   ├── actions.py          # Command handlers
+│   └── mesh/               # Mesh networking
+│       ├── peering.py      # Peer discovery/heartbeat
+│       └── routing.py      # Multi-hop routing
+
 ├── frontend/                # Web Console (React/TS)
 │   ├── src/
 │   │   ├── App.tsx         # Main application
