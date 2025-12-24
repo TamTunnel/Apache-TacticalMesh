@@ -12,6 +12,15 @@
 
 Apache TacticalMesh is an open-source, decentralized mesh networking platform that enables resilient command-and-control communications between edge nodes in contested or infrastructure-denied environments.
 
+### The Simple Explanation (Analogy)
+
+Think of it like **Waze for military radios**:
+
+- **Waze** finds the fastest driving route by checking traffic.
+- **TacticalMesh** finds the fastest communication path by checking which soldiers can reach headquarters.
+
+If one road is blocked (radio is jammed), Waze finds another route. Same with TacticalMesh—if one path fails, it automatically finds another soldier to relay through.
+
 ---
 
 ## Problem Statement
