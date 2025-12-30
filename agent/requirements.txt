@@ -10,7 +10,7 @@ pyyaml>=6.0.1,<7.0.0
 pydantic>=2.5.0,<2.6.0
 
 # System metrics
-psutil>=5.9.0,<6.0.0
+psutil>=5.9.0,<8.0.0
 
 # Development/Testing
 pytest>=7.4.0,<8.0.0
