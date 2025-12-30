@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Commands router for Apache TacticalMesh.
+Commands router for TacticalMesh.
 
 Provides command creation, listing, and status endpoints.
 """

@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Security module for Apache TacticalMesh.
+Security module for TacticalMesh.
 
 Provides rate limiting, password complexity validation, account lockout,
 and token revocation mechanisms.

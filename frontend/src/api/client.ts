@@ -1,8 +1,8 @@
-// Copyright 2024 Apache TacticalMesh Contributors
+// Copyright 2024 TacticalMesh Contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * API Client for Apache TacticalMesh Controller
+ * API Client for TacticalMesh Controller
  * 
  * Provides typed API methods for interacting with the Mesh Controller backend.
  */

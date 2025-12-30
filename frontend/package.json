@@ -1,7 +1,7 @@
 {
   "name": "tacticalmesh-console",
   "version": "0.1.0",
-  "description": "Apache TacticalMesh Web Console",
+  "description": "TacticalMesh Web Console",
   "type": "module",
   "scripts": {
     "dev": "vite",

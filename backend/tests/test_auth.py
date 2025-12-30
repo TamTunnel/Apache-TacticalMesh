@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Authentication API tests for Apache TacticalMesh.
+Authentication API tests for TacticalMesh.
 """
 
 import pytest

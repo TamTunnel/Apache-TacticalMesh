@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Nodes router for Apache TacticalMesh.
+Nodes router for TacticalMesh.
 
 Provides node registration, heartbeat, and query endpoints.
 """

@@ -1,6 +1,6 @@
 # Lab Deployment Guide
 
-This guide walks you through building a **3-5 node demonstration lab** for evaluating Apache TacticalMesh in a controlled environment.
+This guide walks you through building a **3-5 node demonstration lab** for evaluating TacticalMesh in a controlled environment.
 
 **Target Audience**: Program managers, technical evaluators, innovation units, contractors
 
@@ -61,8 +61,8 @@ For quick evaluation without hardware:
 
 ```bash
 # Clone repository
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh
 
 # Start controller and database
 docker-compose up -d
@@ -118,8 +118,8 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y python3 python3-pip git
 
 # Clone repository
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh/agent
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh/agent
 
 # Install dependencies
 pip3 install -r requirements.txt
@@ -229,7 +229,7 @@ nohup python3 -m agent.main --config config.yaml > agent.log 2>&1 &
 1. Perform several actions (login, command, etc.)
 2. Check audit logs in database:
    ```bash
-   docker exec -it apache-tacticalmesh-postgres-1 psql -U postgres -d tacticalmesh
+   docker exec -it tacticalmesh-postgres-1 psql -U postgres -d tacticalmesh
    SELECT * FROM audit_logs ORDER BY timestamp DESC LIMIT 20;
    ```
 3. Verify user, action, timestamp are recorded
@@ -304,7 +304,7 @@ When finished with the lab:
 docker-compose down -v  # -v removes database volume
 
 # On each Pi (optional)
-rm -rf ~/Apache-TacticalMesh
+rm -rf ~/TacticalMesh
 ```
 
 ---
@@ -343,4 +343,4 @@ rm -rf ~/Apache-TacticalMesh
 
 **Document Version**: 1.0  
 **Last Updated**: December 2025  
-**Applies To**: Apache TacticalMesh v0.1.0+
+**Applies To**: TacticalMesh v0.1.0+

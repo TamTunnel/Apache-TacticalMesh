@@ -1,4 +1,4 @@
-// Copyright 2024 Apache TacticalMesh Contributors
+// Copyright 2024 TacticalMesh Contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /**
@@ -230,7 +230,7 @@ const App: React.FC = () => {
                                     Dashboard
                                 </Typography>
                                 <Typography color="text.secondary" paragraph>
-                                    Welcome to Apache TacticalMesh Operations Console. Monitor your mesh network and manage edge nodes.
+                                    Welcome to TacticalMesh Operations Console. Monitor your mesh network and manage edge nodes.
                                 </Typography>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                                     <NodesTable onSendCommand={handleSendCommand} />

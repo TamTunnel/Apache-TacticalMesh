@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Pytest fixtures for Apache TacticalMesh agent tests.
+Pytest fixtures for TacticalMesh agent tests.
 
 Provides mock objects and sample data for testing mesh routing functionality.
 """

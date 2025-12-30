@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Configuration module for Apache TacticalMesh Mesh Controller.
+Configuration module for TacticalMesh Mesh Controller.
 
 Handles environment-based configuration with sensible defaults for
 development and production deployments.
@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
     # Application settings
-    app_name: str = "Apache TacticalMesh Controller"
+    app_name: str = "TacticalMesh Controller"
     app_version: str = "0.1.0"
     debug: bool = False
     

@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Authentication and authorization module for Apache TacticalMesh.
+Authentication and authorization module for TacticalMesh.
 
 Provides JWT-based authentication and role-based access control.
 """

@@ -1,4 +1,4 @@
-# Apache TacticalMesh Backend Dependencies
+# TacticalMesh Backend Dependencies
 # SPDX-License-Identifier: Apache-2.0
 
 # Web Framework

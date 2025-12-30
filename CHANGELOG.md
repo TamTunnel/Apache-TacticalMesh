@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Apache TacticalMesh will be documented in this file.
+All notable changes to TacticalMesh will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Summary
 
-Initial public release of Apache TacticalMesh — an open-source tactical edge networking platform designed for defense, disaster response, and dual-use applications.
+Initial public release of TacticalMesh — an open-source tactical edge networking platform designed for defense, disaster response, and dual-use applications.
 
 ### Added
 
@@ -100,5 +100,5 @@ Apache License 2.0 — See [LICENSE](LICENSE) for details.
 - Prometheus metrics export
 - Geographic visualization (map-based node display)
 
-[0.1.0]: https://github.com/TamTunnel/Apache-TacticalMesh/releases/tag/v0.1.0
-[Unreleased]: https://github.com/TamTunnel/Apache-TacticalMesh/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/TamTunnel/TacticalMesh/releases/tag/v0.1.0
+[Unreleased]: https://github.com/TamTunnel/TacticalMesh/compare/v0.1.0...HEAD

@@ -1,4 +1,4 @@
-# Apache TacticalMesh Backend Dockerfile
+# TacticalMesh Backend Dockerfile
 # SPDX-License-Identifier: Apache-2.0
 
 FROM python:3.11-slim

@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Apache TacticalMesh Mesh Controller - FastAPI Application
+TacticalMesh Mesh Controller - FastAPI Application
 
 This is the main entry point for the Mesh Controller backend service.
 It provides the central orchestration for tactical mesh networks.
@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Application lifespan manager for startup and shutdown."""
     # Startup
-    logger.info("Starting Apache TacticalMesh Controller...")
+    logger.info("Starting TacticalMesh Controller...")
     await init_db()
     
     # Create default admin user if not exists
@@ -61,23 +61,23 @@ async def lifespan(app: FastAPI):
             await session.commit()
             logger.warning("Created default admin user - PASSWORD CHANGE REQUIRED ON FIRST LOGIN")
     
-    logger.info("Apache TacticalMesh Controller started successfully")
+    logger.info("TacticalMesh Controller started successfully")
     
     yield
     
     # Shutdown
-    logger.info("Shutting down Apache TacticalMesh Controller...")
+    logger.info("Shutting down TacticalMesh Controller...")
     await close_db()
-    logger.info("Apache TacticalMesh Controller stopped")
+    logger.info("TacticalMesh Controller stopped")
 
 
 # Create FastAPI application
 app = FastAPI(
-    title="Apache TacticalMesh Controller",
+    title="TacticalMesh Controller",
     description="""
-## Apache TacticalMesh - Tactical Edge Networking Platform
+## TacticalMesh - Tactical Edge Networking Platform
 
-The Mesh Controller is the central orchestration component for Apache TacticalMesh,
+The Mesh Controller is the central orchestration component for TacticalMesh,
 providing command and control for distributed mesh nodes in tactical environments.
 
 ### Features

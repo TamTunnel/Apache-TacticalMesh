@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Dependency injection module for Apache TacticalMesh.
+Dependency injection module for TacticalMesh.
 
 Provides centralized dependencies for database sessions, authentication,
 and role-based access control across all routers.

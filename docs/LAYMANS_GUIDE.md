@@ -1,10 +1,10 @@
-# Layman's Guide to Apache TacticalMesh
+# Layman's Guide to TacticalMesh
 
-This guide explains Apache TacticalMesh in simple, non-technical terms.
+This guide explains TacticalMesh in simple, non-technical terms.
 
 ## What is it?
 
-**Apache TacticalMesh** is open-source software that lets military units, first responders, and disaster teams communicate even when cell towers are down or radios are jammed. It automatically routes messages through nearby team members—like a smart relay race. It's free, works anywhere, and replaces $50,000 proprietary radios with commodity laptops.
+**TacticalMesh** is open-source software that lets military units, first responders, and disaster teams communicate even when cell towers are down or radios are jammed. It automatically routes messages through nearby team members—like a smart relay race. It's free, works anywhere, and replaces $50,000 proprietary radios with commodity laptops.
 
 I built it to solve a real problem: soldiers losing comms in the field cost lives.
 
@@ -25,7 +25,7 @@ If one road is blocked (radio is jammed), Waze finds another route. Same with Ta
 *   **Updates:** Wait months for patches
 *   **Trust:** Can't see how it works (black box)
 
-### Apache TacticalMesh (Open Source)
+### TacticalMesh (Open Source)
 *   **Cost:** $0 (free forever)
 *   **Vendor:** Works with any hardware (Dell laptops, Raspberry Pi, etc.)
 *   **Updates:** Fix bugs yourself or community helps instantly

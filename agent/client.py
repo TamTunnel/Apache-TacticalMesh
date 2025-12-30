@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-HTTP client for Apache TacticalMesh Node Agent.
+HTTP client for TacticalMesh Node Agent.
 
 Provides resilient communication with the Mesh Controller, including
 retry logic, exponential backoff, and connection failover.

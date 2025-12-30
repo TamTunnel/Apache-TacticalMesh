@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Peer-to-peer mesh networking module for Apache TacticalMesh.
+Peer-to-peer mesh networking module for TacticalMesh.
 
 > [!WARNING]
 > This module is EXPERIMENTAL and intended for lab/demo environments only.

@@ -1,4 +1,4 @@
-# Apache TacticalMesh - Release Workflow
+# TacticalMesh - Release Workflow
 # SPDX-License-Identifier: Apache-2.0
 #
 # This workflow builds and pushes Docker images when a release is tagged.

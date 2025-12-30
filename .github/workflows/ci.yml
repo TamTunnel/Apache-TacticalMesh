@@ -1,4 +1,4 @@
-# Apache TacticalMesh - GitHub Actions CI/CD Pipeline
+# TacticalMesh - GitHub Actions CI/CD Pipeline
 # SPDX-License-Identifier: Apache-2.0
 #
 # This workflow runs on push and pull requests to main branch.

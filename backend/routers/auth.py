@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Authentication router for Apache TacticalMesh.
+Authentication router for TacticalMesh.
 
 Provides login and user management endpoints with security controls:
 - Rate limiting on login attempts

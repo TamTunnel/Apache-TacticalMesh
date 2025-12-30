@@ -2,7 +2,7 @@
 
 ## Reporting Security Vulnerabilities
 
-The Apache TacticalMesh team takes security vulnerabilities seriously. We appreciate your efforts to responsibly disclose your findings.
+The TacticalMesh team takes security vulnerabilities seriously. We appreciate your efforts to responsibly disclose your findings.
 
 ### How to Report
 
@@ -32,13 +32,13 @@ When reporting a vulnerability, please include:
 
 ### Scope and Limitations
 
-Apache TacticalMesh is **open-source, unclassified software** designed as general-purpose networking infrastructure:
+TacticalMesh is **open-source, unclassified software** designed as general-purpose networking infrastructure:
 
 > [!IMPORTANT]
 > **No Warranty.** This software is provided "AS IS" without warranty of any kind. See the [Apache 2.0 License](LICENSE) for details.
 
 > [!CAUTION]
-> **No Accreditation.** Apache TacticalMesh has NOT received any government security accreditation, Authority to Operate (ATO), or certification. Organizations deploying this software in government or defense environments are solely responsible for obtaining necessary authorizations.
+> **No Accreditation.** TacticalMesh has NOT received any government security accreditation, Authority to Operate (ATO), or certification. Organizations deploying this software in government or defense environments are solely responsible for obtaining necessary authorizations.
 
 ### Security Features (v0.1.0)
 
@@ -70,7 +70,7 @@ This project explicitly does **NOT** include:
 
 ### Compliance Responsibility
 
-Organizations deploying Apache TacticalMesh are responsible for:
+Organizations deploying TacticalMesh are responsible for:
 
 1. Obtaining any required security authorizations (ATO, IL certifications, etc.)
 2. Conducting their own security assessments
@@ -90,7 +90,7 @@ Organizations deploying Apache TacticalMesh are responsible for:
 
 ## Security Best Practices for Deployment
 
-When deploying Apache TacticalMesh:
+When deploying TacticalMesh:
 
 1. **Change default credentials immediately** after initial setup
 2. **Use HTTPS** for all controller communications

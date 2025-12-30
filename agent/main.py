@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Apache TacticalMesh Node Agent - Main Entry Point
+TacticalMesh Node Agent - Main Entry Point
 
 This is the main entry point for the Node Agent, a lightweight service
 that runs on edge nodes to communicate with the Mesh Controller.
@@ -462,7 +462,7 @@ class NodeAgent:
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description="Apache TacticalMesh Node Agent",
+        description="TacticalMesh Node Agent",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

@@ -1,6 +1,6 @@
-# Contributing to Apache TacticalMesh
+# Contributing to TacticalMesh
 
-Thank you for your interest in contributing to Apache TacticalMesh! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to TacticalMesh! This document provides guidelines for contributing to the project.
 
 ## Code of Conduct
 

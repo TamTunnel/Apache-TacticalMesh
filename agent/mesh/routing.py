@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Multi-hop mesh routing module for Apache TacticalMesh.
+Multi-hop mesh routing module for TacticalMesh.
 
 This module implements Level 2 smart routing, enabling nodes to relay
 heartbeats and commands through mesh peers when direct controller

@@ -1,8 +1,8 @@
-# Apache TacticalMesh
+# TacticalMesh
 
 **Open-Source Tactical Edge Networking Platform**
 
-[![CI](https://github.com/TamTunnel/Apache-TacticalMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/TamTunnel/Apache-TacticalMesh/actions/workflows/ci.yml)
+[![CI](https://github.com/TamTunnel/TacticalMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/TamTunnel/TacticalMesh/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0-green.svg)](https://swagger.io/specification/)
 
@@ -10,7 +10,7 @@
 
 ## One-Line Summary
 
-Apache TacticalMesh is an open-source, decentralized mesh networking platform that enables resilient command-and-control communications between edge nodes in contested or infrastructure-denied environments.
+TacticalMesh is an open-source, decentralized mesh networking platform that enables resilient command-and-control communications between edge nodes in contested or infrastructure-denied environments.
 
 ### The Simple Explanation (Analogy)
 
@@ -76,9 +76,9 @@ Telecom-focused efforts to open radio access network interfaces:
 - **Strengths:** Open standards, multi-vendor support
 - **Weaknesses:** Infrastructure-centric, not designed for tactical edge, assumes reliable backhaul
 
-### The Gaps Apache TacticalMesh Addresses
+### The Gaps TacticalMesh Addresses
 
-| Gap | Apache TacticalMesh Approach |
+| Gap | TacticalMesh Approach |
 |-----|------------------------------|
 | Vendor Lock-in | Fully open-source with Apache 2.0 license |
 | High Cost | Runs on commodity hardware (Raspberry Pi, x86 boxes) |
@@ -89,7 +89,7 @@ Telecom-focused efforts to open radio access network interfaces:
 
 ---
 
-## What Apache TacticalMesh Provides
+## What TacticalMesh Provides
 
 ### Core Benefits
 
@@ -114,16 +114,16 @@ Telecom-focused efforts to open radio access network interfaces:
 
 ### Representative Use Cases
 **1. Platoon‑Level Edge Network in Contested Spectrum** -
-In a high‑threat environment, a platoon operating beyond the range of fixed infrastructure needs resilient local communications between vehicles, dismounted soldiers, and unattended sensors. Apache TacticalMesh is deployed on small edge computers (e.g., ruggedized Raspberry Pi‑class devices) mounted in vehicles and carried in rucksacks. Each node runs the agent, registering with a nearby controller when available and continuing to exchange health and status information when disconnected. Operators use the web console to see which squads and sensors are online, issue simple commands (e.g., reconfigure reporting intervals, enable/disable a sensor), and review audit logs showing who changed what and when. This enables commanders to maintain situational awareness even when satellite and cellular links are degraded or denied.
+In a high‑threat environment, a platoon operating beyond the range of fixed infrastructure needs resilient local communications between vehicles, dismounted soldiers, and unattended sensors. TacticalMesh is deployed on small edge computers (e.g., ruggedized Raspberry Pi‑class devices) mounted in vehicles and carried in rucksacks. Each node runs the agent, registering with a nearby controller when available and continuing to exchange health and status information when disconnected. Operators use the web console to see which squads and sensors are online, issue simple commands (e.g., reconfigure reporting intervals, enable/disable a sensor), and review audit logs showing who changed what and when. This enables commanders to maintain situational awareness even when satellite and cellular links are degraded or denied.
 
 **2. Coalition / Joint Exercise Lab Environment** -
-During a joint or coalition training exercise, multiple nations want to experiment with different radio stacks, edge devices, and command‑and‑control systems without locking into a single vendor. Apache TacticalMesh is deployed in a lab environment as the common “control‑plane” fabric: each participating nation connects its own radios and edge nodes via the TacticalMesh agent and integrates its national C2 prototypes via the OpenAPI interface. The open, Apache‑licensed controller provides shared visibility of node status and command delivery while allowing each partner to keep its own radio hardware and national applications. This supports experimentation with coalition interoperability while maintaining clean separation of sensitive national capabilities.
+During a joint or coalition training exercise, multiple nations want to experiment with different radio stacks, edge devices, and command‑and‑control systems without locking into a single vendor. TacticalMesh is deployed in a lab environment as the common “control‑plane” fabric: each participating nation connects its own radios and edge nodes via the TacticalMesh agent and integrates its national C2 prototypes via the OpenAPI interface. The open, Apache‑licensed controller provides shared visibility of node status and command delivery while allowing each partner to keep its own radio hardware and national applications. This supports experimentation with coalition interoperability while maintaining clean separation of sensitive national capabilities.
 
 **3. Rapid Response / Disaster Relief Network (Dual‑Use)** - 
-After a major natural disaster, civil authorities and military support units need to stand up a local communications fabric quickly in an area with damaged infrastructure. Apache TacticalMesh is deployed on commercial off‑the‑shelf edge devices placed at command posts, field hospitals, and logistics hubs. The agent software forms a local control‑plane mesh, reporting basic health and location information back to a central controller when power and connectivity are available. The operations console gives incident commanders a single view of which sites are reachable, which edge nodes are overloaded, and where to direct scarce resources. This dual‑use scenario allows organizations to evaluate the platform in peacetime humanitarian missions while using the same codebase that can later be hardened for military operations.
+After a major natural disaster, civil authorities and military support units need to stand up a local communications fabric quickly in an area with damaged infrastructure. TacticalMesh is deployed on commercial off‑the‑shelf edge devices placed at command posts, field hospitals, and logistics hubs. The agent software forms a local control‑plane mesh, reporting basic health and location information back to a central controller when power and connectivity are available. The operations console gives incident commanders a single view of which sites are reachable, which edge nodes are overloaded, and where to direct scarce resources. This dual‑use scenario allows organizations to evaluate the platform in peacetime humanitarian missions while using the same codebase that can later be hardened for military operations.
 
 **4. Vendor‑Neutral Integration Testbed** - 
-A defense program office or integrator wants to test multiple radios, routers, and edge compute platforms from different vendors without relying on any one vendor’s proprietary management stack. Apache TacticalMesh is used as a neutral integration layer: each device hosts a small agent that normalizes status and telemetry into a common schema. The program office connects their existing monitoring tools and prototypes to the controller’s OpenAPI endpoints to evaluate performance, resilience, and behavior under fault conditions. Because TacticalMesh is Apache‑licensed and open, the testbed can be shared with contractors, FFRDCs, and allied labs without complex licensing agreements, while still leaving final export‑control decisions to each organization.
+A defense program office or integrator wants to test multiple radios, routers, and edge compute platforms from different vendors without relying on any one vendor’s proprietary management stack. TacticalMesh is used as a neutral integration layer: each device hosts a small agent that normalizes status and telemetry into a common schema. The program office connects their existing monitoring tools and prototypes to the controller’s OpenAPI endpoints to evaluate performance, resilience, and behavior under fault conditions. Because TacticalMesh is Apache‑licensed and open, the testbed can be shared with contractors, FFRDCs, and allied labs without complex licensing agreements, while still leaving final export‑control decisions to each organization.
 
 ---
 
@@ -202,7 +202,7 @@ A defense program office or integrator wants to test multiple radios, routers, a
 │                                                                      │
 │  Multi-Hop Routing: Node A → Node B → Controller                    │
 │  When direct path fails, messages relay through peers               │
-└──────────────────────────────────────────────────────────────────────┘
+196: └──────────────────────────────────────────────────────────────────────┘
 ```
 
 
@@ -230,7 +230,7 @@ A defense program office or integrator wants to test multiple radios, routers, a
 
 ### Compliance Considerations
 
-Apache TacticalMesh is designed as a **general-purpose, dual-use platform**:
+TacticalMesh is designed as a **general-purpose, dual-use platform**:
 
 - ✅ Does not include classified information or algorithms
 - ✅ Does not include cryptographic implementations beyond standard TLS
@@ -242,7 +242,7 @@ Apache TacticalMesh is designed as a **general-purpose, dual-use platform**:
 ### Accreditation & Certification Status
 
 > [!WARNING]
-> **No Government Accreditation.** Apache TacticalMesh has NOT received any government security accreditation, Authority to Operate (ATO), or certification from any government agency.
+> **No Government Accreditation.** TacticalMesh has NOT received any government security accreditation, Authority to Operate (ATO), or certification from any government agency.
 
 **Current Status:**
 - ⚠️ No ATO, IL certification, or FedRAMP authorization
@@ -261,7 +261,7 @@ Organizations deploying in government environments are **solely responsible** fo
 
 ## Versioning and Releases
 
-Apache TacticalMesh follows [Semantic Versioning](https://semver.org/):
+TacticalMesh follows [Semantic Versioning](https://semver.org/):
 
 - **Current Version:** v0.1.0 (Initial public release)
 - **Release Tags:** Published on GitHub as `v{major}.{minor}.{patch}`
@@ -311,8 +311,8 @@ npm run test
 
 ```bash
 # Clone the repository
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh
 
 # Start all services
 docker-compose up -d
@@ -413,10 +413,10 @@ See `CONTRIBUTING.md` for full guidelines.
 
 ## License
 
-Apache TacticalMesh is licensed under the **Apache License 2.0**.
+TacticalMesh is licensed under the **Apache License 2.0**.
 
 ```
-Copyright 2024 Apache TacticalMesh Contributors
+Copyright 2024 TacticalMesh Contributors
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -437,10 +437,10 @@ See [LICENSE](LICENSE) for the complete license text.
 
 ## Contact
 
-- **Repository:** https://github.com/TamTunnel/Apache-TacticalMesh
-- **Issues:** https://github.com/TamTunnel/Apache-TacticalMesh/issues
-- **Discussions:** https://github.com/TamTunnel/Apache-TacticalMesh/discussions
+- **Repository:** https://github.com/TamTunnel/TacticalMesh
+- **Issues:** https://github.com/TamTunnel/TacticalMesh/issues
+- **Discussions:** https://github.com/TamTunnel/TacticalMesh/discussions
 
 ---
 
-*Apache TacticalMesh — Resilient networking for the tactical edge.*
+*TacticalMesh — Resilient networking for the tactical edge.*

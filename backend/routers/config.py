@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Configuration router for Apache TacticalMesh.
+Configuration router for TacticalMesh.
 
 Provides endpoints for managing global and per-node configuration.
 """

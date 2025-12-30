@@ -1,4 +1,4 @@
-# Apache TacticalMesh Node Agent Dependencies
+# TacticalMesh Node Agent Dependencies
 # SPDX-License-Identifier: Apache-2.0
 
 # HTTP Client

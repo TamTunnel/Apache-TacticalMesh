@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Local buffering module for Apache TacticalMesh agent.
+Local buffering module for TacticalMesh agent.
 
 Provides resilient buffering of telemetry and command results when the
 controller is unreachable, with automatic flush when connectivity is restored.

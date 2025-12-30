@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Audit logging module for Apache TacticalMesh.
+Audit logging module for TacticalMesh.
 
 Provides structured audit logging for all significant operations,
 supporting compliance requirements for defense and government deployments.

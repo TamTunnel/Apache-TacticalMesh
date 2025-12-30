@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Database module for Apache TacticalMesh Mesh Controller.
+Database module for TacticalMesh Mesh Controller.
 
 Provides async SQLAlchemy engine, session management, and base model.
 Includes connection retry logic and pool monitoring for production resilience.

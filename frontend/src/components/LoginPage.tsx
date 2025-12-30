@@ -1,4 +1,4 @@
-// Copyright 2024 Apache TacticalMesh Contributors
+// Copyright 2024 TacticalMesh Contributors
 // SPDX-License-Identifier: Apache-2.0
 
 /**
@@ -164,7 +164,7 @@ const LoginPage: React.FC = () => {
                         color="text.secondary"
                         sx={{ display: 'block', textAlign: 'center', mt: 3 }}
                     >
-                        Apache TacticalMesh © 2024 — Apache License 2.0
+                        TacticalMesh © 2024 — Apache License 2.0
                     </Typography>
                 </CardContent>
             </Card>

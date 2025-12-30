@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Command actions module for Apache TacticalMesh Node Agent.
+Command actions module for TacticalMesh Node Agent.
 
 Provides built-in command handlers and extensibility for custom actions.
 """

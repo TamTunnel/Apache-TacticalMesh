@@ -1,6 +1,6 @@
 # Compliance and Export Control Notes
 
-## Apache TacticalMesh — Dual-Use Networking Platform
+## TacticalMesh — Dual-Use Networking Platform
 
 **Document Version:** 1.0  
 **Last Updated:** December 2025  
@@ -10,20 +10,20 @@
 
 ## Executive Summary
 
-Apache TacticalMesh is an **open-source, general-purpose tactical edge networking platform** released under the Apache License 2.0. This document provides important legal and compliance information for organizations considering the deployment or modification of this software.
+TacticalMesh is an **open-source, general-purpose tactical edge networking platform** released under the Apache License 2.0. This document provides important legal and compliance information for organizations considering the deployment or modification of this software.
 
 ---
 
 ## Nature of the Software
 
-### What Apache TacticalMesh IS:
+### What TacticalMesh IS:
 
 - A **general-purpose networking orchestration platform** for managing distributed edge nodes
 - **Dual-use software** applicable to defense, disaster response, commercial IoT, and civil resilience applications
 - **Open-source software** with fully transparent source code available for security review
 - Built on **widely-used, standard technologies** (Python, PostgreSQL, React) with no proprietary components
 
-### What Apache TacticalMesh IS NOT:
+### What TacticalMesh IS NOT:
 
 - Does not include any **classified information** or classified algorithms
 - Does not include any **cryptographic implementations** beyond standard TLS/HTTPS for transport security
@@ -37,22 +37,22 @@ Apache TacticalMesh is an **open-source, general-purpose tactical edge networkin
 
 ### General Information
 
-The Apache TacticalMesh project has been designed with the following export control considerations in mind:
+The TacticalMesh project has been designed with the following export control considerations in mind:
 
 1. **ITAR (International Traffic in Arms Regulations):**  
-   To the best of our knowledge, Apache TacticalMesh does not contain defense articles or technical data as defined under the U.S. Munitions List (USML). The software is a general-purpose networking tool with no inherent military-specific functionality.
+   To the best of our knowledge, TacticalMesh does not contain defense articles or technical data as defined under the U.S. Munitions List (USML). The software is a general-purpose networking tool with no inherent military-specific functionality.
 
 2. **EAR (Export Administration Regulations):**  
-   Apache TacticalMesh is believed to be classified under EAR99 as publicly available, open-source software without controlled encryption beyond standard authentication protocols. However, this assessment is informal and not a legal determination.
+   TacticalMesh is believed to be classified under EAR99 as publicly available, open-source software without controlled encryption beyond standard authentication protocols. However, this assessment is informal and not a legal determination.
 
 3. **Open Source Exception:**  
-   Under 15 CFR § 734.3(b)(3), published open-source software is generally not subject to the EAR. Apache TacticalMesh is publicly available without access restrictions.
+   Under 15 CFR § 734.3(b)(3), published open-source software is generally not subject to the EAR. TacticalMesh is publicly available without access restrictions.
 
 ### Disclaimers
 
 > **⚠️ IMPORTANT: Not Legal Advice**
 >
-> The information in this document is provided for general informational purposes only and does not constitute legal advice. Export control regulations are complex and subject to change. The Apache TacticalMesh project and its contributors make no representations regarding the export classification of this software.
+> The information in this document is provided for general informational purposes only and does not constitute legal advice. Export control regulations are complex and subject to change. The TacticalMesh project and its contributors make no representations regarding the export classification of this software.
 >
 > **End-users and integrators are solely responsible for:**
 > - Obtaining their own export control classification and legal review
@@ -92,7 +92,7 @@ For organizations in NATO member states and allied nations:
 
 ### Audit Trail and Accountability
 
-Apache TacticalMesh includes built-in features to support compliance and oversight:
+TacticalMesh includes built-in features to support compliance and oversight:
 
 - **Comprehensive Audit Logging:** All operator actions are logged with timestamps, user identity, and action details
 - **Role-Based Access Control:** Clear delineation of permissions (Admin, Operator, Observer)
@@ -102,7 +102,7 @@ Apache TacticalMesh includes built-in features to support compliance and oversig
 
 ## Modification and Integration Guidelines
 
-When modifying or integrating Apache TacticalMesh:
+When modifying or integrating TacticalMesh:
 
 1. **Export Control Review:** Any modifications that add encryption, military-specific functionality, or integration with controlled systems should undergo export control review.
 
@@ -115,7 +115,7 @@ When modifying or integrating Apache TacticalMesh:
 > [!CAUTION]
 > **Radio and Cryptographic Integration Warning**
 > 
-> Integration of Apache TacticalMesh with specific radio systems, waveforms, or cryptographic modules (beyond standard TLS) may **change the export control classification** of the resulting integrated system and is **explicitly out of scope** for the core Apache TacticalMesh project.
+> Integration of TacticalMesh with specific radio systems, waveforms, or cryptographic modules (beyond standard TLS) may **change the export control classification** of the resulting integrated system and is **explicitly out of scope** for the core TacticalMesh project.
 > 
 > Examples that may trigger export control review:
 > - Integration with military radios (e.g., SINCGARS, MUOS, Link 16)
@@ -132,8 +132,8 @@ When modifying or integrating Apache TacticalMesh:
 
 For questions regarding this software:
 
-- **Project Repository:** https://github.com/TamTunnel/Apache-TacticalMesh
-- **Issue Tracker:** https://github.com/TamTunnel/Apache-TacticalMesh/issues
+- **Project Repository:** https://github.com/TamTunnel/TacticalMesh
+- **Issue Tracker:** https://github.com/TamTunnel/TacticalMesh/issues
 
 For export control questions, consult with:
 - Your organization's legal counsel
@@ -151,4 +151,4 @@ For export control questions, consult with:
 
 ---
 
-*This document is provided as part of the Apache TacticalMesh open-source project and is licensed under Apache License 2.0.*
+*This document is provided as part of the TacticalMesh open-source project and is licensed under Apache License 2.0.*

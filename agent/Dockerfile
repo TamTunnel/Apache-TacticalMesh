@@ -1,4 +1,4 @@
-# Apache TacticalMesh Agent Dockerfile
+# TacticalMesh Agent Dockerfile
 # SPDX-License-Identifier: Apache-2.0
 #
 # Lightweight container for running the Node Agent on edge devices.

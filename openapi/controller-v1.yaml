@@ -1,12 +1,12 @@
-# Apache TacticalMesh OpenAPI Specification
-# Copyright 2024 Apache TacticalMesh Contributors
+# TacticalMesh OpenAPI Specification
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 
 openapi: 3.0.3
 info:
-  title: Apache TacticalMesh Controller API
+  title: TacticalMesh Controller API
   description: |
-    REST API for the Apache TacticalMesh Mesh Controller.
+    REST API for the TacticalMesh Mesh Controller.
     
     This API enables management of mesh nodes, command dispatch, configuration,
     and user authentication for tactical edge networking deployments.
@@ -30,8 +30,8 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
   contact:
-    name: Apache TacticalMesh
-    url: https://github.com/TamTunnel/Apache-TacticalMesh
+    name: TacticalMesh
+    url: https://github.com/TamTunnel/TacticalMesh
 
 servers:
   - url: http://localhost:8000

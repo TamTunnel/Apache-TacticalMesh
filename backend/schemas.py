@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Pydantic schemas for Apache TacticalMesh Mesh Controller.
+Pydantic schemas for TacticalMesh Mesh Controller.
 
 Defines request/response models for API validation and serialization.
 """

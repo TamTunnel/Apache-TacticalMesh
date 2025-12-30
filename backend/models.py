@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-SQLAlchemy models for Apache TacticalMesh Mesh Controller.
+SQLAlchemy models for TacticalMesh Mesh Controller.
 
 Defines the database schema for nodes, commands, users, configurations,
 and audit logs.

@@ -1,8 +1,8 @@
 # Production Deployment Runbook
 
-## Apache TacticalMesh Deployment Guide
+## TacticalMesh Deployment Guide
 
-This runbook provides step-by-step instructions for deploying Apache TacticalMesh in production environments.
+This runbook provides step-by-step instructions for deploying TacticalMesh in production environments.
 
 ---
 
@@ -42,8 +42,8 @@ This runbook provides step-by-step instructions for deploying Apache TacticalMes
 ### 1.1 Clone Repository
 
 ```bash
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh
 ```
 
 ### 1.2 Configure Environment
@@ -97,8 +97,8 @@ curl -k https://your-controller:443/health
 
 ```bash
 # On each edge node
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh/agent
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh/agent
 pip3 install -r requirements.txt
 ```
 
@@ -280,4 +280,4 @@ If deployment fails:
 
 **Document Version**: 1.0  
 **Last Updated**: December 2025  
-**Applies To**: Apache TacticalMesh v0.1.0+
+**Applies To**: TacticalMesh v0.1.0+

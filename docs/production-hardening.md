@@ -1,6 +1,6 @@
 # Production Hardening Guide
 
-This guide provides security hardening recommendations for deploying Apache TacticalMesh in operational defense, disaster response, or production environments.
+This guide provides security hardening recommendations for deploying TacticalMesh in operational defense, disaster response, or production environments.
 
 > [!WARNING]
 > **IMPORTANT**: This guide provides general security recommendations. Organizations are responsible for their own security assessments, ATOs, and compliance with applicable regulations.
@@ -158,7 +158,7 @@ This guide provides security hardening recommendations for deploying Apache Tact
 
 ### SIEM Integration
 
-Apache TacticalMesh logs are JSON-structured for easy parsing. Key log events to monitor:
+TacticalMesh logs are JSON-structured for easy parsing. Key log events to monitor:
 
 | Event | Description | Priority |
 |-------|-------------|----------|
@@ -204,7 +204,7 @@ For current integration, consider:
 ### Classification Handling
 
 > [!CAUTION]
-> Apache TacticalMesh is designed for **UNCLASSIFIED** use only.
+> TacticalMesh is designed for **UNCLASSIFIED** use only.
 
 If integrated into classified systems:
 - Conduct security assessment for your classification level
@@ -232,4 +232,4 @@ For deployment questions, open a discussion on GitHub or consult your organizati
 
 **Document Version**: 1.0  
 **Last Updated**: December 2025  
-**Applies To**: Apache TacticalMesh v0.1.0+
+**Applies To**: TacticalMesh v0.1.0+

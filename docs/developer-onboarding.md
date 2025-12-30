@@ -1,8 +1,8 @@
 # Developer Onboarding Guide
 
-## Apache TacticalMesh — Getting Started for Developers
+## TacticalMesh — Getting Started for Developers
 
-This guide will help you set up a development environment and become productive with Apache TacticalMesh within a day.
+This guide will help you set up a development environment and become productive with TacticalMesh within a day.
 
 ---
 
@@ -36,8 +36,8 @@ The fastest way to run the full stack:
 
 ```bash
 # Clone the repository
-git clone https://github.com/TamTunnel/Apache-TacticalMesh.git
-cd Apache-TacticalMesh
+git clone https://github.com/TamTunnel/TacticalMesh.git
+cd TacticalMesh
 
 # Start all services
 docker-compose up -d
@@ -214,7 +214,7 @@ npx prettier --write src/
 ## Project Structure
 
 ```
-Apache-TacticalMesh/
+TacticalMesh/
 ├── backend/                 # Mesh Controller (FastAPI)
 │   ├── main.py             # Application entry point
 │   ├── config.py           # Environment configuration
@@ -325,8 +325,8 @@ npx @openapitools/openapi-generator-cli generate \
 ## Getting Help
 
 - **Documentation:** Check the `docs/` directory
-- **Issues:** https://github.com/TamTunnel/Apache-TacticalMesh/issues
-- **Discussions:** https://github.com/TamTunnel/Apache-TacticalMesh/discussions
+- **Issues:** https://github.com/TamTunnel/TacticalMesh/issues
+- **Discussions:** https://github.com/TamTunnel/TacticalMesh/discussions
 
 ---
 

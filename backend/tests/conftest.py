@@ -1,7 +1,7 @@
-# Copyright 2024 Apache TacticalMesh Contributors
+# Copyright 2024 TacticalMesh Contributors
 # SPDX-License-Identifier: Apache-2.0
 """
-Test configuration and fixtures for Apache TacticalMesh backend tests.
+Test configuration and fixtures for TacticalMesh backend tests.
 """
 
 import asyncio
